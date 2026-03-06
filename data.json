@@ -1,0 +1,180 @@
+{
+  "hero": {
+    "name": "Mokshada Nehete",
+    "tag": "computer science & data science",
+    "roles": ["ML Engineer", "Data Scientist", "Full-Stack Developer", "AI Researcher", "Problem Solver"],
+    "subtitle": "B.Tech CSE (Honors in AI) @ <strong>IIIT Pune</strong> &nbsp;&middot;&nbsp; B.S. Data Science @ <strong>IIT Madras</strong>",
+    "badges": ["ML / Deep Learning", "LLMs & RAG", "Dover Scholar", "IIT Madras Female Topper"]
+  },
+  "about": {
+    "paragraphs": [
+      "I'm a driven computer science student pursuing dual degrees — a <strong>B.Tech in CSE with Honors in AI</strong> from IIIT Pune and a <strong>B.S. in Data Science</strong> from IIT Madras — with exceptional academic performance across both institutions.",
+      "My passion lies at the intersection of <strong>machine learning, generative AI, and full-stack engineering</strong>. I love building intelligent systems that are practical and impactful — from multi-agent data pipelines to RAG-powered assistants and computer vision models.",
+      "Outside academics, I lead robotics workshops as Club Head of R.O.F.I.E.S, design content for the Mathematics Club, and volunteer with the Robin Hood Army for food and education drives. I believe great engineers also make great humans."
+    ]
+  },
+  "skills": [
+    {
+      "icon": "fas fa-code",
+      "title": "Languages",
+      "tags": ["Python", "Java", "C/C++", "SQL", "JavaScript", "HTML/CSS"]
+    },
+    {
+      "icon": "fas fa-layer-group",
+      "title": "Frameworks",
+      "tags": ["FastAPI", "Flask", "Vue.js", "React", "LangChain", "Streamlit"]
+    },
+    {
+      "icon": "fas fa-brain",
+      "title": "ML / GenAI",
+      "tags": ["PyTorch", "HuggingFace", "LLMs", "RAG", "FAISS", "ChromaDB", "ViT", "CNNs"]
+    },
+    {
+      "icon": "fas fa-chart-bar",
+      "title": "Data & Analytics",
+      "tags": ["pandas", "NumPy", "Matplotlib", "PostgreSQL", "Time Series"]
+    },
+    {
+      "icon": "fas fa-tools",
+      "title": "Tools & DevOps",
+      "tags": ["Git", "Docker", "Shell", "S3", "REST APIs"]
+    },
+    {
+      "icon": "fas fa-search",
+      "title": "Specializations",
+      "tags": ["Semantic Search", "OCR", "Multi-Agent AI", "Computer Vision", "NLP"]
+    }
+  ],
+  "education": [
+    {
+      "period": "Aug 2023 – May 2027",
+      "degree": "B.Tech in Computer Science & Engineering",
+      "institution": "Indian Institute of Information Technology (IIIT) Pune &nbsp;&middot;&nbsp; Honors in AI",
+      "cgpa": "CGPA: 9.82 &nbsp;&middot;&nbsp; Honors CGPA: 10.0"
+    },
+    {
+      "period": "Jan 2024 – May 2027",
+      "degree": "B.S. in Data Science and Applications",
+      "institution": "Indian Institute of Technology (IIT) Madras",
+      "cgpa": "CGPA: 9.9"
+    }
+  ],
+  "projects": [
+    {
+      "label": "In Progress",
+      "title": "AI-Powered Offline Disk Analyzer",
+      "stack": ["Python", "Flask", "React", "PostgreSQL", "Docker", "Streamlit"],
+      "description": "A fully offline intelligent system for semantic search, OCR, file clustering, and face/object lookup — no internet required.",
+      "bullets": [
+        "Automated file organization and duplicate detection pipeline",
+        "Real-time disk monitoring and alerting system",
+        "Multi-tab Streamlit UI with local face recognition and object lookup"
+      ],
+      "github": null,
+      "deployed": null
+    },
+    {
+      "label": "Multi-Agent · Aug 2025",
+      "title": "Data Analyst Agent",
+      "stack": ["Python", "Flask", "React", "PostgreSQL", "Docker"],
+      "description": "End-to-end multi-agent pipeline that automatically sources, cleans, analyzes, and visualizes datasets.",
+      "bullets": [
+        "Ingests from CSV, APIs, S3, HTML, and databases automatically",
+        "Planner–data–analysis architecture for structured analytics",
+        "REST API returning insights and charts within 3 minutes for datasets up to 1TB"
+      ],
+      "github": "https://github.com",
+      "deployed": "https://yourdeployedlink.com"
+    },
+    {
+      "label": "RAG / LLM · Jun 2025",
+      "title": "Virtual TA Assistant",
+      "stack": ["FastAPI", "FAISS", "RAG", "all-MiniLM-L6-v2"],
+      "description": "API-based LLM-powered assistant for IIT Madras course query resolution, deployed as a production service.",
+      "bullets": [
+        "RAG pipeline using FAISS for efficient vector storage and retrieval",
+        "all-MiniLM-L6-v2 embeddings for high-quality semantic search",
+        "Handles complex course Q&A with accurate, context-aware answers"
+      ],
+      "github": "https://github.com",
+      "deployed": "https://yourdeployedlink.com"
+    },
+    {
+      "label": "Computer Vision",
+      "title": "Age & Gender Prediction",
+      "stack": ["ViT", "CNN", "PyTorch", "HuggingFace"],
+      "description": "Deep learning model predicting age (regression) and gender (classification) simultaneously from facial images.",
+      "bullets": [
+        "Pretrained Vision Transformer backbone with custom multi-head outputs",
+        "Augmentation strategies for stronger generalization on unseen faces",
+        "Single model for dual task — regression and classification"
+      ],
+      "github": "https://github.com",
+      "deployed": null
+    },
+    {
+      "label": "Time Series · Kaggle",
+      "title": "Cinema Audience Forecasting",
+      "stack": ["Time Series", "ML", "Feature Eng.", "Kaggle"],
+      "description": "Kaggle competition — forecasting daily cinema audience counts from historical booking and attendance data.",
+      "bullets": [
+        "EDA to identify trend and seasonality patterns",
+        "Feature engineering: lag features, rolling windows, calendar signals",
+        "Regression-based ML models evaluated with robust cross-validation"
+      ],
+      "github": null,
+      "deployed": "https://kaggle.com"
+    },
+    {
+      "label": "Full Stack · Dec 2024",
+      "title": "Household Services Platform",
+      "stack": ["Flask", "Vue.js", "SQLAlchemy", "REST API"],
+      "description": "Full-stack web platform managing household services across three distinct user roles.",
+      "bullets": [
+        "Dashboards, booking, feedback, and task handling workflows",
+        "V1: Flask backend with core service management",
+        "V2: Vue.js frontend with REST APIs and analytics dashboard"
+      ],
+      "github": "https://github.com",
+      "deployed": null
+    }
+  ],
+  "activities": [
+    {
+      "role": "Club Head",
+      "title": "R.O.F.I.E.S — Robotics Club",
+      "org": "IIIT Pune",
+      "description": "Leading robotics activities, technical workshops, and mentoring teams for competitions. Managing cross-functional projects and training sessions.",
+      "period": "Aug 2025 – Present"
+    },
+    {
+      "role": "Design Head",
+      "title": "QuantNum — Mathematics Club",
+      "org": "IIIT Pune",
+      "description": "Creating research posters, event designs, and interactive math content to make mathematics accessible and engaging.",
+      "period": "Aug 2025 – Present"
+    },
+    {
+      "role": "Volunteer",
+      "title": "Robin Hood Army",
+      "org": "Social Initiative",
+      "description": "Contributing to education, health, and food donation drives for underprivileged children across the community.",
+      "period": "June 2024 – Present"
+    },
+    {
+      "role": "Sports",
+      "title": "Throwball & Basketball",
+      "org": "Athletics",
+      "description": "Runner-up in Zonal Throwball championship; active basketball player competing at the zonal level.",
+      "period": "2017–2018"
+    }
+  ],
+  "contact": {
+    "email": "mokshadanehete14@gmail.com",
+    "phone": "+91-9284969160",
+    "linkedin": "https://linkedin.com/in/mokshada-nehete",
+    "linkedinDisplay": "linkedin.com/in/mokshada-nehete",
+    "github": "https://github.com/mokshada-nehete",
+    "githubDisplay": "github.com/mokshada-nehete"
+  }
+}
