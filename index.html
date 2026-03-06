@@ -104,12 +104,9 @@
 
     /* ── Projects ── */
     #projects { background: var(--bg); }
-    .projects-hint { color: var(--muted); font-size: .78rem; margin-top: -46px; margin-bottom: 50px; font-family: 'Space Mono',monospace; letter-spacing: 1px; opacity: .7; }
+    .projects-hint { color: var(--muted); font-size: .78rem; margin-top: -46px; margin-bottom: 36px; font-family: 'Space Mono',monospace; letter-spacing: 1px; opacity: .7; }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; }
 
-    /* Layout: 2-col grid */
-    .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
-    /* Base card */
     .project-card {
       background: var(--bg2); border: 1px solid var(--border);
       border-radius: 12px; overflow: hidden; position: relative;
@@ -118,42 +115,27 @@
       cursor: pointer;
     }
     .project-card.visible { opacity: 1; transform: translateY(0); }
-
-    /* Glowing top accent line — hidden until hover/open */
     .project-card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
       background: linear-gradient(90deg, var(--accent), var(--accent2), transparent);
       opacity: 0; transition: opacity .4s;
     }
-    .project-card:hover::before,
-    .project-card.open::before { opacity: 1; }
-
-    /* Subtle corner number */
+    .project-card:hover::before { opacity: 1; }
     .project-card::after {
       content: attr(data-num);
-      position: absolute; bottom: 18px; right: 22px;
+      position: absolute; bottom: 14px; right: 20px;
       font-family: 'Playfair Display', serif; font-size: 4.5rem;
       font-weight: 900; color: rgba(200,169,110,.05);
-      line-height: 1; pointer-events: none;
-      transition: color .4s;
+      line-height: 1; pointer-events: none; transition: color .4s;
     }
-    .project-card:hover::after { color: rgba(200,169,110,.09); }
-
-    .project-card:hover,
-    .project-card.open {
-      border-color: rgba(200,169,110,.28);
-      box-shadow: 0 24px 60px rgba(0,0,0,.5), 0 0 0 1px rgba(200,169,110,.06);
+    .project-card:hover::after { color: rgba(200,169,110,.1); }
+    .project-card:hover {
+      border-color: rgba(200,169,110,.3);
+      box-shadow: 0 24px 60px rgba(0,0,0,.5);
+      transform: translateY(-4px);
     }
-
-    /* Featured: first card spans full width */
-    .project-card.featured { grid-column: 1 / -1; }
-
-    /* Header */
-    .project-header { padding: 28px 30px 22px; display: flex; flex-direction: column; gap: 12px; }
-    .project-card.featured .project-header { padding: 32px 36px 26px; }
-
+    .project-header { padding: 26px 26px 22px; display: flex; flex-direction: column; gap: 10px; }
     .project-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-    .project-meta { display: flex; align-items: center; gap: 10px; }
     .project-label {
       font-family: 'Space Mono',monospace; font-size: .62rem;
       letter-spacing: 2.5px; text-transform: uppercase;
@@ -161,70 +143,83 @@
       border: 1px solid rgba(200,169,110,.2); border-radius: 20px;
       padding: 3px 10px;
     }
-    .project-featured-badge {
-      font-family: 'Space Mono',monospace; font-size: .6rem;
-      letter-spacing: 1.5px; text-transform: uppercase;
-      color: #08090d; background: var(--accent);
-      border-radius: 20px; padding: 3px 10px; font-weight: 700;
-    }
-
-    .project-toggle {
-      width: 30px; height: 30px; border-radius: 50%;
+    .project-open-btn {
+      width: 28px; height: 28px; border-radius: 50%;
       border: 1px solid rgba(200,169,110,.2);
       display: flex; align-items: center; justify-content: center;
-      color: var(--muted); font-size: .72rem; flex-shrink: 0;
-      transition: border-color .3s, color .3s, transform .4s, background .3s;
+      color: var(--muted); font-size: .68rem; flex-shrink: 0;
+      transition: border-color .3s, color .3s, background .3s;
     }
-    .project-card.open .project-toggle {
-      transform: rotate(45deg); color: #08090d;
-      background: var(--accent); border-color: var(--accent);
-    }
-
-    .project-title {
-      font-family: 'Playfair Display',serif; font-size: 1.2rem; font-weight: 700; line-height: 1.3;
-    }
-    .project-card.featured .project-title { font-size: 1.55rem; }
-
+    .project-card:hover .project-open-btn { border-color: var(--accent); color: var(--accent); }
+    .project-title { font-family: 'Playfair Display',serif; font-size: 1.2rem; font-weight: 700; line-height: 1.3; }
     .project-stack { display: flex; flex-wrap: wrap; gap: 6px; }
     .project-tech {
       padding: 4px 10px; font-size: .68rem;
       background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08);
       border-radius: 4px; color: var(--muted); font-family: 'Space Mono',monospace;
-      transition: border-color .2s, color .2s;
+      transition: border-color .2s;
     }
     .project-card:hover .project-tech { border-color: rgba(200,169,110,.15); }
 
-    /* Divider */
-    .project-divider { height: 1px; background: var(--border); margin: 0 30px; transition: background .3s; }
-    .project-card.open .project-divider,
-    .project-card:hover .project-divider { background: rgba(200,169,110,.18); }
-
-    /* Expandable body */
-    .project-body { max-height: 0; overflow: hidden; transition: max-height .55s cubic-bezier(.4,0,.2,1); }
-    .project-card.open .project-body { max-height: 600px; }
-    .project-body-inner { padding: 22px 30px 30px; }
-    .project-card.featured .project-body-inner { padding: 26px 36px 36px; }
-
-    /* Featured layout — desc left, bullets right */
-    .project-card.featured .project-body-inner {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start;
+    /* ── Project Modal ── */
+    .project-modal-overlay {
+      position: fixed; inset: 0; z-index: 800;
+      background: rgba(0,0,0,.78); backdrop-filter: blur(10px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s;
     }
-    .project-card.featured .project-actions { grid-column: 1 / -1; }
-
-    .project-desc { font-size: .88rem; color: var(--muted); line-height: 1.85; margin-bottom: 0; }
-    .project-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 0; }
-    .project-bullets li {
-      font-size: .84rem; color: var(--muted); line-height: 1.65;
-      padding-left: 20px; position: relative;
+    .project-modal-overlay.open { opacity: 1; pointer-events: all; }
+    .project-modal {
+      background: var(--bg2); border: 1px solid rgba(200,169,110,.25);
+      border-radius: 16px; width: 100%; max-width: 660px;
+      max-height: 88vh; overflow-y: auto; position: relative;
+      transform: translateY(28px) scale(.97);
+      transition: transform .38s cubic-bezier(.4,0,.2,1);
+      box-shadow: 0 40px 100px rgba(0,0,0,.7), 0 0 0 1px rgba(200,169,110,.08);
     }
-    .project-bullets li::before { content:'—'; position: absolute; left: 0; color: var(--accent); }
-
-    .project-actions { display: flex; gap: 10px; flex-wrap: wrap; padding-top: 6px; }
+    .project-modal-overlay.open .project-modal { transform: translateY(0) scale(1); }
+    .project-modal::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), transparent);
+      border-radius: 16px 16px 0 0;
+    }
+    .modal-header { padding: 32px 32px 24px; border-bottom: 1px solid var(--border); }
+    .modal-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+    .modal-label {
+      font-family: 'Space Mono',monospace; font-size: .62rem;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--accent); background: rgba(200,169,110,.08);
+      border: 1px solid rgba(200,169,110,.2); border-radius: 20px;
+      padding: 3px 10px;
+    }
+    .modal-close {
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 1px solid var(--border); background: none;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted); font-size: .85rem; cursor: pointer; flex-shrink: 0;
+      transition: border-color .3s, color .3s, background .3s;
+    }
+    .modal-close:hover { border-color: var(--accent); color: var(--accent); background: rgba(200,169,110,.06); }
+    .modal-title { font-family: 'Playfair Display',serif; font-size: 1.75rem; font-weight: 900; line-height: 1.2; margin-bottom: 16px; }
+    .modal-stack { display: flex; flex-wrap: wrap; gap: 7px; }
+    .modal-tech {
+      padding: 5px 12px; font-size: .72rem;
+      background: rgba(200,169,110,.07); border: 1px solid rgba(200,169,110,.15);
+      border-radius: 4px; color: var(--text); font-family: 'Space Mono',monospace;
+    }
+    .modal-body { padding: 26px 32px 32px; display: flex; flex-direction: column; gap: 20px; }
+    .modal-desc { font-size: .95rem; color: var(--muted); line-height: 1.9; }
+    .modal-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .modal-bullets li { font-size: .9rem; color: var(--muted); line-height: 1.7; padding-left: 22px; position: relative; }
+    .modal-bullets li::before { content:'—'; position: absolute; left: 0; color: var(--accent); }
+    .modal-actions { display: flex; gap: 12px; flex-wrap: wrap; padding-top: 4px; }
     .proj-link {
       display: inline-flex; align-items: center; gap: 7px;
-      padding: 9px 18px; border-radius: 5px;
-      font-size: .78rem; font-weight: 600; letter-spacing: .5px;
-      text-decoration: none; transition: transform .2s, box-shadow .2s, border-color .2s, color .2s;
+      padding: 10px 20px; border-radius: 6px;
+      font-size: .82rem; font-weight: 600; letter-spacing: .5px;
+      text-decoration: none; transition: transform .2s, box-shadow .2s, border-color .2s, color .2s, background .2s;
     }
     .proj-link.github-btn { background: var(--accent); color: #08090d; }
     .proj-link.github-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,169,110,.35); }
@@ -232,7 +227,11 @@
     .proj-link.deploy-btn:hover { background: rgba(200,169,110,.08); transform: translateY(-2px); }
     .proj-link.wip { border: 1px solid var(--border); color: var(--muted); opacity: .4; cursor: default; pointer-events: none; }
 
-    @media(max-width:900px) { .projects-grid { grid-template-columns: 1fr; } .project-card.featured { grid-column: auto; } .project-card.featured .project-body-inner { grid-template-columns: 1fr; } }
+    @media(max-width:900px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-modal { max-width: 100%; }
+      .modal-header, .modal-body { padding-left: 20px; padding-right: 20px; }
+    }
 
     /* ── Resume ── */
     #resume { background: var(--bg); }
@@ -464,6 +463,25 @@
   </div>
 </section>
 
+<!-- ═══════════ PROJECT MODAL ═══════════ -->
+<div class="project-modal-overlay" id="projectModalOverlay">
+  <div class="project-modal" id="projectModal">
+    <div class="modal-header">
+      <div class="modal-top">
+        <span class="modal-label" id="modalLabel"></span>
+        <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+      </div>
+      <h2 class="modal-title" id="modalTitle"></h2>
+      <div class="modal-stack" id="modalStack"></div>
+    </div>
+    <div class="modal-body">
+      <p class="modal-desc" id="modalDesc"></p>
+      <ul class="modal-bullets" id="modalBullets"></ul>
+      <div class="modal-actions" id="modalActions"></div>
+    </div>
+  </div>
+</div>
+
 <footer>
   <p>&copy; 2025 <span>Mokshada Nehete</span>. Crafted with passion &amp; precision.</p>
 </footer>
@@ -529,58 +547,65 @@ function renderEducation(d) {
 
 function renderProjects(d) {
   const grid = document.getElementById('projectsGrid');
-  d.forEach((p, i) => {
-    const techHTML = p.stack.map(t => `<span class="project-tech">${t}</span>`).join('');
-    const bullHTML = p.bullets.map(b => `<li>${b}</li>`).join('');
-    const num      = String(i + 1).padStart(2, '0');
-    const isFeat   = i === 0;
 
-    // Buttons
-    let actionsHTML = '';
+  // Modal elements
+  const overlay  = document.getElementById('projectModalOverlay');
+  const modalLabel   = document.getElementById('modalLabel');
+  const modalTitle   = document.getElementById('modalTitle');
+  const modalStack   = document.getElementById('modalStack');
+  const modalDesc    = document.getElementById('modalDesc');
+  const modalBullets = document.getElementById('modalBullets');
+  const modalActions = document.getElementById('modalActions');
+
+  function openModal(p) {
+    modalLabel.textContent   = p.label;
+    modalTitle.textContent   = p.title;
+    modalStack.innerHTML     = p.stack.map(t => `<span class="modal-tech">${t}</span>`).join('');
+    modalDesc.textContent    = p.description;
+    modalBullets.innerHTML   = p.bullets.map(b => `<li>${b}</li>`).join('');
+
+    let actHTML = '';
     if (!p.github && !p.deployed) {
-      actionsHTML = `<span class="proj-link wip"><i class="fab fa-github"></i> In Progress</span>`;
+      actHTML = `<span class="proj-link wip"><i class="fab fa-github"></i> In Progress</span>`;
     } else {
-      if (p.github)   actionsHTML += `<a href="${p.github}"   target="_blank" class="proj-link github-btn"  data-stop><i class="fab fa-github"></i> GitHub</a>`;
-      if (p.deployed) actionsHTML += `<a href="${p.deployed}" target="_blank" class="proj-link deploy-btn"  data-stop><i class="fas fa-external-link-alt"></i> Live Demo</a>`;
+      if (p.github)   actHTML += `<a href="${p.github}"   target="_blank" class="proj-link github-btn"><i class="fab fa-github"></i> GitHub</a>`;
+      if (p.deployed) actHTML += `<a href="${p.deployed}" target="_blank" class="proj-link deploy-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>`;
     }
+    modalActions.innerHTML = actHTML;
 
-    // Featured card splits desc + bullets into two columns; regular stacks them
-    const bodyInner = isFeat
-      ? `<p class="project-desc">${p.description}</p>
-         <ul class="project-bullets">${bullHTML}</ul>
-         <div class="project-actions">${actionsHTML}</div>`
-      : `<p class="project-desc" style="margin-bottom:14px">${p.description}</p>
-         <ul class="project-bullets" style="margin-bottom:18px">${bullHTML}</ul>
-         <div class="project-actions">${actionsHTML}</div>`;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Close on overlay click or button
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  d.forEach((p, i) => {
+    const num      = String(i + 1).padStart(2, '0');
+    const techHTML = p.stack.map(t => `<span class="project-tech">${t}</span>`).join('');
 
     const card = document.createElement('div');
-    card.className = 'project-card' + (isFeat ? ' featured' : '');
+    card.className = 'project-card';
     card.setAttribute('data-num', num);
     card.style.transitionDelay = (i * 0.07) + 's';
     card.innerHTML = `
       <div class="project-header">
         <div class="project-top">
-          <div class="project-meta">
-            ${isFeat ? '<span class="project-featured-badge">Featured</span>' : ''}
-            <span class="project-label">${p.label}</span>
-          </div>
-          <div class="project-toggle"><i class="fas fa-plus"></i></div>
+          <span class="project-label">${p.label}</span>
+          <div class="project-open-btn"><i class="fas fa-arrow-up-right-from-square" style="font-size:.6rem"></i></div>
         </div>
         <h3 class="project-title">${p.title}</h3>
         <div class="project-stack">${techHTML}</div>
-      </div>
-      <div class="project-divider"></div>
-      <div class="project-body">
-        <div class="project-body-inner">${bodyInner}</div>
       </div>`;
 
-    card.querySelector('.project-header').addEventListener('click', () => {
-      const isOpen = card.classList.contains('open');
-      document.querySelectorAll('.project-card').forEach(c => c.classList.remove('open'));
-      if (!isOpen) card.classList.add('open');
-    });
-    card.querySelectorAll('[data-stop]').forEach(a => a.addEventListener('click', e => e.stopPropagation()));
-
+    card.addEventListener('click', () => openModal(p));
     grid.appendChild(card);
   });
 }
@@ -838,7 +863,7 @@ window.PORTFOLIO_DATA = {
     { "role": "Volunteer",    "title": "Robin Hood Army",                  "org": "Social Initiative","description": "Contributing to education, health, and food donation drives for underprivileged children across the community.",                           "period": "June 2024 – Present" },
     { "role": "Sports",       "title": "Throwball & Basketball",           "org": "Athletics",        "description": "Runner-up in Zonal Throwball championship; active basketball player competing at the zonal level.",                                       "period": "2017–2018" }
   ],
-  "contact": {
+   "contact": {
     "email":          "mokshadanehete14@gmail.com",
     "phone":          "+91-9284969160",
     "linkedin":       "https://www.linkedin.com/in/mokshada-chandrashekhar-nehete-139336221/",
